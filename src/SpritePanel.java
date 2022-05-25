@@ -10,6 +10,8 @@
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
@@ -18,6 +20,7 @@ import javax.swing.JPanel;
 public class SpritePanel extends JPanel{
     ArrayList<Sprite> sprite = new ArrayList<Sprite>();// WIll be use to store sprites
     private Circle circle ; // will use to darw and intereact with circle.
+    private SQLiteTest sqLiteTest;
 
 
     /**
@@ -33,11 +36,9 @@ public class SpritePanel extends JPanel{
      * @param event
      */
     private void newSprite (MouseEvent event){
-        Sprite s = new Sprite(this);
+        Sprite s = new Sprite(this, sqLiteTest);
         new Thread(s).start();
         sprite.add(s);
-        //threads.add(new Thread( new Sprite(this)));
-        System.out.println("New ball created");
     }
     /**animate method
      * This method is for displaying the sprite.
@@ -45,7 +46,7 @@ public class SpritePanel extends JPanel{
      *
      */
     public void animate(){
-
+        System.out.format("%15s%15s%15s%15s%15s%n","ID",   "X_Coordinate" ,  "Y_Coordinate",   "X-speed",   "Y-Speed");
         while (true){
 
 
@@ -71,6 +72,17 @@ public class SpritePanel extends JPanel{
         @Override
         public void mousePressed( final MouseEvent event ){
             newSprite(event);
+            ResultSet rs = sqLiteTest.display();
+
+            try{
+            while(rs.next()) {
+                    System.out.format("%15s%15s%15s%15s%15s%n", rs.getInt("id"),rs.getInt("x_coordinate"), rs.getInt("y_coordinate"),rs.getInt("x_coordenete_speed"),rs.getInt("y_coordenete_speed"));
+                    //System.out.println(rs.getInt("id") + "    " + rs.getInt("x_coordinate") + "           " + rs.getInt("y_coordinate"));
+
+            }
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -129,6 +141,10 @@ public class SpritePanel extends JPanel{
                 sprite.get(i).draw(g); // will draw the sprite.
             }
         }
+    }
+
+    public void setSqLiteTest(SQLiteTest sqLite){
+        sqLiteTest = sqLite;
     }
 
 }

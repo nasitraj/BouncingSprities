@@ -36,7 +36,7 @@ public class Sprite implements Runnable{
      * And that object will be use to get witdh and hight if main panel for creating location for new sprite.
      * @param panel
      */
-    public Sprite (SpritePanel panel)
+    public Sprite (SpritePanel panel, SQLiteTest sqLiteTest)
     {
 
         this.panel = panel;
@@ -44,6 +44,7 @@ public class Sprite implements Runnable{
         y = random.nextInt(panel.getHeight()); // will generete a random y coordenete
         dx = random.nextInt(2*MAX_SPEED) - MAX_SPEED;
         dy = random.nextInt(2*MAX_SPEED) - MAX_SPEED;
+        this.addData(sqLiteTest);
     }
 
     /**
@@ -209,5 +210,8 @@ public class Sprite implements Runnable{
         return inCircle;
     }
 
+    public void addData(SQLiteTest sqLiteTest){
+        sqLiteTest.addsprite(x,y,dx,dy);
+    }
 }
 

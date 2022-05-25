@@ -18,10 +18,11 @@ public class BouncingSprites {
      * Default constructor
      * Will set function on frame and will aslo set main panel in frame.
      */
-    public BouncingSprites() {
+    public BouncingSprites(SQLiteTest sqLiteTest) {
         frame = new JFrame("Bouncing Sprites 2017W"); // tittle on frame
         frame.setSize(500, 500); // setting the size of frame.
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        panel.setSqLiteTest(sqLiteTest);
         frame.add(panel); // adding the panel in frame.
         frame.setVisible(true);
     }
@@ -34,6 +35,7 @@ public class BouncingSprites {
     }
 
     public static void main(String[] args) {
-        new BouncingSprites().start();
+        SQLiteTest sqLiteTest = new SQLiteTest();
+        new BouncingSprites(sqLiteTest).start();
     }
 }
