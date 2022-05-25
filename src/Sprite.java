@@ -25,7 +25,11 @@ public class Sprite implements Runnable{
 
     private int dx; // x coordenete speed
     private int dy; // y coordenete speed
-    private Color color = Color.BLUE; // color of sprite
+    float r = random.nextFloat();
+    float g = random.nextFloat();
+    float b = random.nextFloat();
+    private Color color = new Color(r,g,b); // color of sprite
+
 
     private boolean canMove = true; // condition to move a sprite
     private boolean inCircle = false; // location for sprite
@@ -50,11 +54,13 @@ public class Sprite implements Runnable{
     /**
      * Draw method
      * This Method will draw sprite with spicific size and will fill it with color.
-     * @param g
+     * @param graphics
      */
-    public void draw(Graphics g){
-        g.setColor(color);
-        g.fillOval(x, y, SIZE, SIZE);
+    public void draw(Graphics graphics){
+
+
+        graphics.setColor(color);
+        graphics.fillOval(x, y, SIZE, SIZE);
     }
 
     /**

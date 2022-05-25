@@ -34,8 +34,5 @@ public class BouncingSprites {
         panel.animate();  // never returns due to infinite loop in animate method
     }
 
-    public static void main(String[] args) {
-        SQLiteTest sqLiteTest = new SQLiteTest();
-        new BouncingSprites(sqLiteTest).start();
-    }
+
 }
