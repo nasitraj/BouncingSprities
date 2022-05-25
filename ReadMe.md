@@ -38,23 +38,28 @@ First Run Server class then Client Class which will then prompt you to enter a c
 ---
 
 ## ScreenShots
-![Scanning](Scan.jpg)
+![Input Box](Commandinput.PNG)
 
-Scan result on a Android Phone
-
-
+Input Dilog box
 
 
 
-![UUID](UUID.PNG)
-Name and UUID of nearby Devices
+
+
+![Panel](Panel.PNG)
+
+Panel for Displaying the program logic.
+
+![Database](database.PNG)
+
+Database table which record each ball and it's data. On the start of the program it will clear itself so that it can store new ball's data.
 
 ## References
-https://punchthrough.com/android-ble-guide/
+https://www.youtube.com/watch?v=gchR3DpY-8Q
 
-https://www.youtube.com/watch?v=zeN88yh7YdY
+https://www.youtube.com/watch?v=r_MbozD32eo
 
-https://www.youtube.com/watch?v=Y2cEbZw_R6M&list=PLFiLQ00mrKN2H_RtrY5Ady_tCL2KD0Bq-
+https://www.youtube.com/watch?v=Kmgo00avvEw
 
 
 
